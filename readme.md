@@ -75,75 +75,87 @@ Homepage
 ## ROUTES:
 @todo - validation & authorization
 
+**First page (index with sign in / log in buttons)**
 - GET / 
-  - renders the homepage (sign in & log in)
+  - renders:  index  (the homepage : sign in & log in)
 
-- GET /auth/signup
-  - redirects to /signup
-  - renders the signup form 
 
-- POST /auth/signup
-  - redirects to /events
+**Sign Up**
+- GET /signup
+  - renders:   auth/signup form 
+
+- POST /signup
+    (before check if user completes form, and user & password are fulfilled)
+  - redirects:  /user/favorites
   - body:
     - username
     - password
 
-- GET /user/profile/favorites
-    - renders favourites form eras.
+**Sign up second screen (favorites)**
+- GET /profile/favorites
+    - renders:   user/profile/favorites (favourites form eras).
 
-- POST /user/profile/favorites
-    - redirects to /user/profile/profile
+- POST /profile/favorites
+    - redirects:  /user/profile
     - body:
         - Era.
 
--GET /user/profile/profile
-    - renders profile form.
+**Sign up third screen (user profile: description - email)**
+-  GET /profile
+    - renders:    user/profile form.
     
-- POST /user/profile/profile
-    - redirects to /index
+- POST /user/profile
+    - redirects:  /events/index
     - body:
         - Description.
         - Mail.
 
-- GET /auth/login
-  - redirects to /login
-  - renders the login form 
+**Log in**
+- GET /login
+  - renders:    auth/login (the login form)
 
-- POST /auth/login
-  - redirects to /events
+- POST /login
+  - redirects to /events/index
   - body:
     - username
     - password
 
-- POST /auth/logout
+
+**Log Out (button on navbar)** 
+- POST /logout
   - body: (empty)
   - deletes the user from the session
+  - redirects: /index
 
+**main/index page. options for explore, your events, create**
 - GET /index
-  - renders main events page. main page for exploring, access your events and create them.
+  - renders:    main/index (main events page for exploring, access your events and create them).
 
-- GET /events
-    - render events list.
+**eventslist. page with all events**
+- GET /eventslist
+    - renders:   events/eventslist.
 
-- GET /events/create
-    - renders the create event page with form
+**create event page**
+- GET /create
+    - renders:   events/create (the create event page with form).
 
-- POST /events/ 
-  - redirects to /events/:id
+- POST /     
+  - redirects:  /events/:id
   - body: 
     - era
     - date
     - description
     - url photo
 
-- GET /events/:id
-  - renders the event detail page
+**event detail. where user can add it to his/her own**
+- GET /:id
+  - renders:    events/:id (the event detail page).
   - includes the list of attendees
   - attend button if user not attending yet
   - if i am the user that creates the event i would have a button to edit
 
-- POST /events/:id/attend 
-  - redirects to /user/profile/events
+- POST /:id/attend 
+  - redirects:   /user/profile/events
   - body: (empty - the user is already stored in the session)
 
 
