@@ -17,6 +17,7 @@ Web application where users meet to make or attend Time Travel events.
 - **events delete** - As a user i want to delete an event i'm attending in case i added it by mistake or i changed my mind.
 - **events detail** - As a user I want to see the event details and attendee list of one event so that I can decide if I want to attend.
 - **event attend** - As a user I want to be able to attend to event so that the organizers can count me in.
+- **profile** - As a user I want to check my profile where i see my description and attending events.
 @todo - check what is in the backlog
 
 ## MVP
@@ -78,11 +79,13 @@ Homepage
 **First page (index with sign in / log in buttons)**
 - GET / 
   - renders:  index  (the homepage : sign in & log in)
+  - validation: logged in redirect -> events   : no log in -> "/"  
 
 
 **Sign Up**
 - GET /signup
   - renders:   auth/signup form 
+  - validation: logged in redirects -> events   : no log in -> "/"
 
 - POST /signup
     (before check if user completes form, and user & password are fulfilled)
@@ -94,6 +97,7 @@ Homepage
 **Sign up second screen (favorites)**
 - GET /profile/favorites
     - renders:   user/profile/favorites (favourites form eras).
+    - validation: logged in redirects -> events.     no log in -> "/"
 
 - POST /profile/favorites
     - redirects:  /user/profile
@@ -103,16 +107,18 @@ Homepage
 **Sign up third screen (user profile: description - email)**
 -  GET /profile
     - renders:    user/profile form.
+    - validation:  logged in redirects -> events.   no log in -> "/"
     
 - POST /user/profile
-    - redirects:  /events/index
+    - redirects:  /events
     - body:
         - Description.
         - Mail.
 
 **Log in**
 - GET /login
-  - renders:    auth/login (the login form)
+  - renders:    auth/login (the login form).
+  - validation: logged in redirects -> events.
 
 - POST /login
   - redirects to /events/index
@@ -128,18 +134,21 @@ Homepage
   - redirects: /index
 
 **main/index page. options for explore, your events, create**
-- GET /index
+- GET /events
   - renders:    main/index (main events page for exploring, access your events and create them).
+  - validation:  no log in redirects -> "/"
 
 **eventslist. page with all events**
-- GET /eventslist
+- GET /events/explore
     - renders:   events/eventslist.
+    - validation: no log in redirects -> "/"
 
 **create event page**
-- GET /create
+- GET /events/create
     - renders:   events/create (the create event page with form).
+    - validation: no log in redirects -> "/"
 
-- POST /     
+- POST events/create    
   - redirects:  /events/:id
   - body: 
     - era
@@ -148,15 +157,21 @@ Homepage
     - url photo
 
 **event detail. where user can add it to his/her own**
-- GET /:id
+- GET /events/:id
   - renders:    events/:id (the event detail page).
   - includes the list of attendees
   - attend button if user not attending yet
   - if i am the user that creates the event i would have a button to edit
+  - validation: no log in redirects -> "/"
 
-- POST /:id/attend 
+- POST events/:id/attend 
   - redirects:   /user/profile/events
   - body: (empty - the user is already stored in the session)
+
+**profile. user profile (description and attending events)**
+- GET /profile/me
+  - renders:   user/profile/me
+  - validation: no log in redirects -> "/"
 
 
 ## Models
@@ -180,7 +195,10 @@ description: String
 picture: String
 era: String
 date: Date
-location: {lat: String, long: String}
+location: {
+    lat: String,
+    long: String
+}
 attendees: [ObjectId<User>]
 ``` 
 
