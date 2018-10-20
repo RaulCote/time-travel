@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const eventSchema = new Schema({
-  owner: {type: ObjectId, ref:User},
+  owner: { type: ObjectId, ref: 'User' },
   name: String,
   description: String,
   picture: String,
-  era: {type: String,
-    enum: ['60s','70s', '80s', 'medieval', 'prehistoric']
+  era: { type: String,
+    enum: ['60s', '70s', '80s', 'medieval', 'prehistoric']
   },
   date: Date,
   // location: {
@@ -24,4 +24,3 @@ const eventSchema = new Schema({
 const Event = mongoose.model('Event', eventSchema);
 
 module.exports = Event;
-
