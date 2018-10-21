@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../models/user.js');
+const middlewares = require('../middlewares/middlewares');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -12,6 +13,25 @@ router.get('/', function (req, res, next) {
 router.get('/profile/favorites', function (req, res, next) {
   console.log('Profile favorites');
   res.render('user/profile/favorites');
+});
+
+router.post('/profile/favorites', middlewares.requirePreferences, (req, res, next) => {
+  const preferences = req.body.preferences;
+  let user = req.session.currentUser;
+
+  User.findById(user._id)
+    .then((addtouser) => {
+      addtouser.preferences = preferences;
+      addtouser.save()
+        .then(() => {
+          console.log('adding favorite eras');
+          console.log(addtouser.preferences);
+          res.redirect('/user/profile');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
 });
 
 // Third step from Sign In
