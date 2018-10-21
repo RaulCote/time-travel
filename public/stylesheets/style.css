@@ -17,12 +17,14 @@ body {
 /* ---- typography ---- */
 
 body {
-  color: #fff;
+  color: #172847;
   font-size: 16px;
   font-family: 'Chakra Petch', sans-serif;
   line-height: 147%;
-  background: #000;
-  
+  background: rgb(54, 54, 54);
+  background-image: url("../images/1467.jpg");
+  background-position: 40%;
+  background-repeat: no-repeat;
 }
 
 h1, h2, h3 {
@@ -80,29 +82,34 @@ p {
 /* ---- components ---- */
 
 .button {
-  padding: 0 15px; 
-  margin: 50px 15px;
-  width: 90%;
-  background-color: blue;
+  padding: 10px 30px; 
+  margin: 50px;
+  width: 200px;
+  background-color: #172847;
   color: #fff;
   border: 1px solid #fff;
-  border-radius: 20px;
+  border-radius: 10px;
   font-family: 'Chakra Petch', sans-serif;
+  align-self: center;
 }
 
 .button-alt {
-  color: blue;
+  color: #172847;
   background-color: #fff;
 }
 
+.input {
+  font-family:  'Chakra Petch', sans-serif;
+}
 .icons-nav-bar {
-  width: 10%;
+  width: 50px;
 }
 .nav-bar {
   display: flex;
   flex-flow: row wrap;
   padding: 10px 10px;
   justify-content: space-between;
+  background: #172847;
 }
 
 .field {
