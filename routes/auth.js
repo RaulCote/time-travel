@@ -9,7 +9,7 @@ const saltRounds = 10;
 
 /* GET users listing. */
 router.get('/signup', function (req, res, next) {
-  console.log('hola');
+  console.log(User.schema.path('preferences').caster.enumValues);
   res.render('auth/signup');
 });
 
