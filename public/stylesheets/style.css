@@ -1,8 +1,112 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-a {
-  color: #00B7FF;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ---- typography ---- */
+
+body {
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Chakra Petch', sans-serif;
+  line-height: 147%;
+  background: #000;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  /*padding-bottom: 25px; */
+}
+
+p {
+  margin: 0;
+  text-align: justify;
+}
+
+
+
+/* ---- layout ---- */
+
+#site-header {
+  padding: 30px 0;
+  color: white;
+  background: #111;
+}
+
+#site-footer {
+  color: white;
+  padding: 60px 0;
+  background: #111;
+}
+
+#site-main {
+  margin-bottom: 60px;
+}
+
+.container {
+  margin: 0 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+}
+
+
+
+
+/* ---- components ---- */
+
+.button {
+  padding: 0 15px; 
+  margin: 50px 15px;
+  width: 90%;
+  background-color: blue;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+.button-alt {
+  color: blue;
+  background-color: #fff;
+}
+
+.icons-nav-bar {
+  width: 10%;
+}
+.nav-bar {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px 10px;
+  justify-content: space-between;
+}
+
+.field {
+  padding: 10px 10px;
+}
+.field.submit{
+  padding: 25px;
 }
