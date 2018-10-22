@@ -29,6 +29,7 @@ router.post('/create', (req, res, next) => {
     .then((createdEvent) => {
       createdEvent.attendees.push(ObjectId(userId));
       createdEvent.save();
+      // req.flash('success', 'Evento creado correctamente.');
       res.redirect('/events');
     })
     .catch((error) => {
