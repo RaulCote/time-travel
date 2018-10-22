@@ -31,7 +31,9 @@ router.post('/create', (req, res, next) => {
   event.owner = userId;
 
   Event.create(event)
-    .then(() => {
+    .then((createdEvent) => {
+      createdEvent.attendees.push(ObjectId(userId));
+      createdEvent.save();
       res.redirect('/events');
     })
     .catch((error) => {

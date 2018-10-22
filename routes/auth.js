@@ -9,9 +9,8 @@ const saltRounds = 10;
 const middlewares = require('../middlewares/middlewares');
 
 // Sign Up :: First Page (2nd and 3rd on User.js)
-router.get('/signup', /* middlewares.requireAnon, */function (req, res, next) {
-  console.log(User.schema.path('preferences').caster.enumValues);
-  res.render('auth/signup');
+router.get('/signup', middlewares.notifications, /* middlewares.requireAnon, */function (req, res, next) {
+  res.render('auth/signup', { messages: req.flash('error') });
 });
 
 router.post('/signup', middlewares.requireUserPassSignUp, function (req, res, next) {
@@ -42,23 +41,19 @@ router.post('/signup', middlewares.requireUserPassSignUp, function (req, res, ne
 });
 
 // Log In Page
-router.get('/login', /* middlewares.requireAnon, */function (req, res, next) {
+router.get('/login', middlewares.notifications, /* middlewares.requireAnon, */function (req, res, next) {
   res.render('auth/login');
 });
 
-router.post('/login', /* middlewares.requireAnon, */function (req, res, next) {
+router.post('/login', middlewares.requireUserPassLogIn, /* middlewares.requireAnon, */function (req, res, next) {
   const username = req.body.username;
   const password = req.body.password;
-
-  if (!username || !password) {
-    console.log('rellena todo los campos');
-    return res.redirect('/auth/login');
-  };
 
   User.findOne({ username })
     .then((user) => {
       if (!user) {
         console.log('no existe user');
+        req.flash('error', 'Usuario o Contraseña incorrectos.');
         return res.redirect('/auth/login');
       }
 
@@ -67,6 +62,7 @@ router.post('/login', /* middlewares.requireAnon, */function (req, res, next) {
         res.redirect('/events');
       } else {
         console.log('contraseña erronea');
+        req.flash('error', 'Usuario o Contraseña incorrectos.');
         return res.render('auth/login');
       }
     })
