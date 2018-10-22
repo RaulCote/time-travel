@@ -3,7 +3,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../models/user.js');
 const middlewares = require('../middlewares/middlewares');
-
+const Event = require('../models/event.js');
+const ObjectId = mongoose.Types.ObjectId;
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
@@ -71,6 +72,25 @@ router.post('/profile', (req, res, next) => {
 // Your Events page
 
 router.get('/profile/events', (req, res, next) => {
-  res.render('user/profile/your-events');
+  const id = req.session.currentUser._id;
+
+  // res.render('user/profile/your-events');
+  Event.find({ attendees: { $eq: ObjectId(id) } })
+    .then((event) => {
+      console.log(event);
+      res.render('user/profile/your-events', { event });
+    })
+    .catch(next);
 });
+
+router.post('/profile/events', (req, res, next) => {
+//   User.findById(id)
+//   .populate('favorites')
+//   .then((user) => {
+//     console.log('user', user);
+//     res.render('auth/profile', { user })
+//   })
+//   .catch(next);
+});
+
 module.exports = router;

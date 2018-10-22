@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../models/user.js');
 const Event = require('../models/event.js');
+const middlewares = require('../middlewares/middlewares');
 const ObjectId = mongoose.Types.ObjectId;
 
 // Events main page: Explore, Your Events, Create.
@@ -19,11 +20,6 @@ router.get('/explore', (req, res, next) => {
     .catch((error) => {
       next(error);
     });
-});
-
-// Your Events Page
-router.get('/user/profile/events', (req, res, next) => {
-  res.render('events/your-events');
 });
 
 // Events Create Page
@@ -45,6 +41,20 @@ router.post('/create', (req, res, next) => {
     })
     .catch((error) => {
       console.log(error);
+    });
+});
+
+// Event Page
+router.get('/:_id', middlewares.requireUser, (req, res, next) => {
+  const id = req.params._id;
+  Event.findById(id)
+    .populate('attendees')
+    .then((event) => {
+      res.render('events/displayEvent', { event });
+    })
+    .catch(error => {
+      next(error);
+      console.log('Error finding Event ID', error);
     });
 });
 
