@@ -15,6 +15,7 @@ router.get('/explore', (req, res, next) => {
   res.render('events/explore');
 });
 
+// Events Create Page
 router.get('/create', (req, res, next) => {
   res.render('events/create');
 });

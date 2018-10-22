@@ -8,13 +8,13 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const middlewares = require('../middlewares/middlewares');
 
-/* GET users listing. */
+// Sign Up :: First Page (2nd and 3rd on User.js)
 router.get('/signup', /* middlewares.requireAnon, */function (req, res, next) {
   console.log(User.schema.path('preferences').caster.enumValues);
   res.render('auth/signup');
 });
 
-router.post('/signup', middlewares.requireUserPass, function (req, res, next) {
+router.post('/signup', middlewares.requireUserPassSignUp, function (req, res, next) {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -41,6 +41,7 @@ router.post('/signup', middlewares.requireUserPass, function (req, res, next) {
     .catch(next);
 });
 
+// Log In Page
 router.get('/login', /* middlewares.requireAnon, */function (req, res, next) {
   res.render('auth/login');
 });

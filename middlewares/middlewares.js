@@ -8,7 +8,7 @@ function requireUser (req, res, next) {
   }
 };
 
-function requireUserPass (req, res, next) {
+function requireUserPassSignUp (req, res, next) {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -44,6 +44,6 @@ function requirePreferences (req, res, next) {
 module.exports = {
   requireUser,
   requireAnon,
-  requireUserPass,
+  requireUserPassSignUp,
   requirePreferences
 };
