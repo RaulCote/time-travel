@@ -12,7 +12,13 @@ router.get('/', (req, res, next) => {
 
 // Events Explore Page
 router.get('/explore', (req, res, next) => {
-  res.render('events/explore');
+  Event.find()
+    .then((event) => {
+      res.render('events/explore', { event });
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 // Your Events Page
