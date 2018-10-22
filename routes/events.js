@@ -15,6 +15,11 @@ router.get('/explore', (req, res, next) => {
   res.render('events/explore');
 });
 
+// Your Events Page
+router.get('/user/profile/events', (req, res, next) => {
+  res.render('events/your-events');
+});
+
 // Events Create Page
 router.get('/create', (req, res, next) => {
   res.render('events/create');
