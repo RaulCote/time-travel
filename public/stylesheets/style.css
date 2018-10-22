@@ -116,9 +116,14 @@ p {
   flex-flow: row wrap;
   padding: 10px 10px;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   background: #172847;
 
+}
+
+.logout-button {
+  background: #172847;
+  border: 0;
 }
 
 .field {
