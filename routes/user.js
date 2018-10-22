@@ -68,4 +68,9 @@ router.post('/profile', (req, res, next) => {
     });
 });
 
+// Your Events page
+
+router.get('/profile/events', (req, res, next) => {
+  res.render('user/profile/your-events');
+});
 module.exports = router;

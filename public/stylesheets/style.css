@@ -23,7 +23,8 @@ body {
   line-height: 147%;
   background: rgb(54, 54, 54);
   background-image: url("../images/1467.jpg");
-  background-position: 40%;
+  background-size: cover;
+  background-position: 0%;
   background-repeat: no-repeat;
 }
 
@@ -92,11 +93,15 @@ p {
   border-radius: 10px;
   font-family: 'Chakra Petch', sans-serif;
   align-self: center;
+  display: flex;
+  justify-content: center;
 }
 
 .button-alt {
   color: #172847;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
 .input {
@@ -106,6 +111,7 @@ p {
   width: 50px;
 }
 .nav-bar {
+  height: 100%;
   display: flex;
   flex-flow: row wrap;
   padding: 10px 10px;
