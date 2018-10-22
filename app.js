@@ -1,3 +1,4 @@
+const flash = require('connect-flash');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -48,6 +49,8 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.session.currentUser;
   next();
 });
+
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
