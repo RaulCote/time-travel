@@ -16,14 +16,15 @@ const eventsRouter = require('./routes/events');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/timetravelApp');
+mongoose.connect('mongodb://localhost/timetravelApp', {
+  useNewUrlParser: true
+});
 
 // view engine setup
+app.use(expressLayouts);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/layout');
-
-app.use(expressLayouts);
 
 app.use(logger('dev'));
 app.use(express.json());

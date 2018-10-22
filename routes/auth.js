@@ -67,26 +67,13 @@ router.post('/login', middlewares.requireUserPassLogIn, /* middlewares.requireAn
       }
     })
     .catch(next);
-  // .then((user) => {
-  //   if (user) {
-  //     res.redirect('/auth/login');
-  //   } else {
-  //     const salt = bcrypt.genSaltSync(saltRounds);
-  //     const hashedPassword = bcrypt.hashSync(password, salt);
+});
 
-  //     User.create({ username, password: hashedPassword })
-  //       .then((user) => {
-  //         user.save()
-  //           .then(() => {
-  //             req.session.currentUser = user.username;
-  //             res.redirect('/events');
-  //             console.log('hola ' + req.session.currentUser);
-  //           });
-  //       })
-  //       .catch(next);
-  //   }
-  // })
-  // .catch(next);
+// Log out
+
+router.post('/logout', middlewares.requireUser, (req, res, next) => {
+  req.session.destroy((err) => next(err));
+  res.redirect('/');
 });
 
 // Home

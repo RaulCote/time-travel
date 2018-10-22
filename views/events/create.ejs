@@ -1,7 +1,7 @@
 <h1>Create Events Page</h1>
 
 <form method="POST" action="/events/create">
-  <div><label>Title</label><input type="text" name="Title"></div>
+  <div><label>Name</label><input type="text" name="name"/></div>
   <label>Eras</label>
     <div><input type="radio" name="era" value="60s">60s</div>
     <div><input type="radio" name="era" value="70s">70s</div>
@@ -11,7 +11,7 @@
     <div><input type="radio" name="era" value="Roman Empire">Roman Empire</div>
     <div><input type="radio" name="era" value="prehistoric">prehistoric</div>
   <div><label>Date</label><input type="date" name="date"/></div>
-  <div><label>Description</label><textarea name="textarea" rows="10" cols="50" placeholder="Event description"></textarea></div>
+  <div><label>Description</label><textarea name="description" rows="10" cols="50">Your description..</textarea></div>
   <div><label>URL Photo</label><input type="url" name="picture"/></div>
   <button type="submit">Create</button>
 </form>

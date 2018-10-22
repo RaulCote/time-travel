@@ -12,7 +12,13 @@ router.get('/', (req, res, next) => {
 
 // Events Explore Page
 router.get('/explore', (req, res, next) => {
-  res.render('events/explore');
+  Event.find()
+    .then((event) => {
+      res.render('events/explore', { event });
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 // Your Events Page
@@ -34,6 +40,7 @@ router.post('/create', (req, res, next) => {
     .then((createdEvent) => {
       createdEvent.attendees.push(ObjectId(userId));
       createdEvent.save();
+      // req.flash('success', 'Evento creado correctamente.');
       res.redirect('/events');
     })
     .catch((error) => {
