@@ -89,4 +89,20 @@ router.post('/login', middlewares.requireUserPassLogIn, /* middlewares.requireAn
   // .catch(next);
 });
 
+// Home
+
+router.post('/events', (req, res, next) => {
+  req.session.delete(() => {
+    res.redirect('/events');
+  });
+});
+module.exports = router;
+
+// Log out
+
+router.post('/logout', middlewares.requireUser, (req, res, next) => {
+  req.session.destroy((err) => next(err));
+  res.redirect('/');
+});
+
 module.exports = router;
