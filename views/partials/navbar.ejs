@@ -1,6 +1,8 @@
 
 <div class="nav-bar">
-<img class="icons-nav-bar" src="../images/home.svg" alt="Home Icon" srcset="">
-<img class="icons-nav-bar" src="../images/list.svg" alt="Your Events Icon" srcset="">
-<form action="/logout" method="POST"><a href="/"><img class="icons-nav-bar" src="../images/logout.svg" alt="Log out Icon" srcset=""></form></a>
+<a href="/events"><img class="icons-nav-bar" src="../images/home.svg" alt="Home Icon"></a>
+<a href="/user/profile/events"><img class="icons-nav-bar" src="../images/list.svg" alt="Your Events Icon"></a>
+<form action="/auth/logout" method="POST">
+<button class="logout-button" type="submit"><img class="icons-nav-bar" src="../images/logout.svg" alt="Log out Icon"></button>
+</form>
 </div>

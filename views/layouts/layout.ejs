@@ -10,7 +10,7 @@
 </head>
 <body>
   <%- body %>
-  <% if (!currentUser) { %>
+  <% if (currentUser) { %>
     <%- include ../partials/navbar.ejs %>
   <% }%>
 </body>
