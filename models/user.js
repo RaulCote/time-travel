@@ -10,7 +10,8 @@ const userSchema = new Schema({
     enum: ['60s', '70s', '80s', 'medieval', 'prehistoric']
   }],
   picture: String,
-  description: String
+  description: String,
+  email: String
 });
 
 const User = mongoose.model('User', userSchema);

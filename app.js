@@ -10,7 +10,8 @@ const MongoStore = require('connect-mongo')(session);
 const authRouter = require('./routes/auth');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const userRouter = require('./routes/user');
+const eventsRouter = require('./routes/events');
 
 const app = express();
 
@@ -49,8 +50,9 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 app.use('/auth', authRouter);
+app.use('/events', eventsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

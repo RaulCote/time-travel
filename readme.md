@@ -106,7 +106,7 @@ Homepage
 
 **Sign up third screen (user profile: description - email)**
 -  GET /profile
-    - renders:    user/profile form.
+    - renders:    user/profile/profile form.
     - validation:  logged in redirects -> events.   no log in -> "/"
     
 - POST /user/profile
