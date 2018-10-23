@@ -3,12 +3,14 @@
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -20,15 +22,12 @@ body {
   color: #172847;
   font-size: 16px;
   font-family: 'Chakra Petch', sans-serif;
-  line-height: 147%;
+  /*line-height: 147%;*/
   background: linear-gradient(rgb(139, 139, 139), #FEFEFE) no-repeat;
-  /*background: url("../images/1467.jpg") no-repeat center center fixed cover;*/
-
 }
 
 h1, h2, h3 {
   text-align: center;
-  /*padding-bottom: 25px; */
 }
 
 p {
@@ -57,7 +56,7 @@ p {
 }
 
 .container {
-  height: 100%;
+  height: 90%;
   margin: 0 20px;
   display: flex;
   flex-flow: column;
@@ -109,7 +108,7 @@ p {
   width: 50px;
 }
 .nav-bar {
-  height: 100%;
+  /*height: 100%;*/
   display: flex;
   flex-flow: row wrap;
   padding: 10px 10px;
