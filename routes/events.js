@@ -44,6 +44,19 @@ router.post('/create', (req, res, next) => {
     });
 });
 
+// Edit Event
+router.get('/:_id/edit', (req, res, next) => {
+  console.log('test');
+  const id = req.params._id;
+  Event.findById(id)
+    .then((event) => {
+      res.render('events/editevent', { event });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 // Event Page
 router.get('/:_id', middlewares.requireUser, (req, res, next) => {
   const id = req.params._id;
@@ -79,17 +92,5 @@ router.post('/:_id/attend', (req, res, next) => {
       console.log(error);
     });
 });
-
-// Edit Event
-// router.get('/:_id/edit', (req, res, next) => {
-//   const id = req.params.id;
-//   Event.findById(id)
-//     .then((event) => {
-//       res.render('events/editevent', { event });
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// });
 
 module.exports = router;
