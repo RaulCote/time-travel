@@ -71,10 +71,9 @@ router.post('/profile', (req, res, next) => {
 
 // Your Events page
 
-router.get('/profile/events', (req, res, next) => {
+router.get('/profile/events', middlewares.notifications, (req, res, next) => {
   const id = req.session.currentUser._id;
 
-  // res.render('user/profile/your-events');
   Event.find({ attendees: { $eq: ObjectId(id) } })
     .then((event) => {
       console.log(event);

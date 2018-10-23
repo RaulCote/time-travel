@@ -70,6 +70,7 @@ router.post('/:_id/attend', (req, res, next) => {
       event.save()
         .then(() => {
           console.log(event);
+          req.flash('success', '¡Asistencia confirmada! ¡Prepárate!');
           res.redirect('/user/profile/events');
         })
         .catch(next);
