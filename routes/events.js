@@ -46,13 +46,24 @@ router.post('/create', (req, res, next) => {
 
 // Edit Event
 router.get('/:_id/edit', (req, res, next) => {
-  console.log('test');
   const id = req.params._id;
   Event.findById(id)
     .then((event) => {
-      res.render('events/editevent', { event });
+      res.render('events/editevent', { event: event });
     })
     .catch((error) => {
+      console.log(error);
+    });
+});
+
+router.post('/:_id/edit', middlewares.requireUser, (req, res, next) => {
+  const event = req.body;
+  const id = req.params._id;
+  Event.findByIdAndUpdate(id, event)
+    .then(() => {
+      res.redirect(`/events/${id}`);
+    })
+    .catch(error => {
       console.log(error);
     });
 });
