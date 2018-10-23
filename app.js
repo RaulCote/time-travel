@@ -16,7 +16,7 @@ const eventsRouter = require('./routes/events');
 
 const app = express();
 
-mongoose.connect('process.env.MONGODB_URI', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
 });
 
