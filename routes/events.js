@@ -7,12 +7,12 @@ const middlewares = require('../middlewares/middlewares');
 const ObjectId = mongoose.Types.ObjectId;
 
 // Events main page: Explore, Your Events, Create.
-router.get('/', (req, res, next) => {
+router.get('/', middlewares.requireUser, (req, res, next) => {
   res.render('events/index');
 });
 
 // Events Explore Page
-router.get('/explore', (req, res, next) => {
+router.get('/explore', middlewares.requireUser, (req, res, next) => {
   Event.find()
     .then((event) => {
       res.render('events/explore', { event });
@@ -23,7 +23,7 @@ router.get('/explore', (req, res, next) => {
 });
 
 // Events Create Page
-router.get('/create', (req, res, next) => {
+router.get('/create', middlewares.requireUser, (req, res, next) => {
   res.render('events/create');
 });
 
@@ -79,5 +79,17 @@ router.post('/:_id/attend', (req, res, next) => {
       console.log(error);
     });
 });
+
+// Edit Event
+// router.get('/:_id/edit', (req, res, next) => {
+//   const id = req.params.id;
+//   Event.findById(id)
+//     .then((event) => {
+//       res.render('events/editevent', { event });
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// });
 
 module.exports = router;

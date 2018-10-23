@@ -1,0 +1,18 @@
+<h1>Edit Event</h1>
+<h3><%= event.name %></h3>
+
+<form method="POST" action="/events/<%=event._id %>/edit">
+  <div><label>Name</label><input type="text" name="name"/></div>
+  <label>Eras</label>
+    <div><input type="radio" name="era" value="60s">60s</div>
+    <div><input type="radio" name="era" value="70s">70s</div>
+    <div><input type="radio" name="era" value="80s">80s</div>
+    <div><input type="radio" name="era" value="XIX century">XIX Century</div>
+    <div><input type="radio" name="era" value="medieval">medieval</div>
+    <div><input type="radio" name="era" value="Roman Empire">Roman Empire</div>
+    <div><input type="radio" name="era" value="prehistoric">prehistoric</div>
+  <div><label>Date</label><input type="date" name="date"/></div>
+  <div><label>Description</label><textarea name="description" rows="10" cols="50">Your description..</textarea></div>
+  <div><label>URL Photo</label><input type="url" name="picture"/></div>
+  <button type="submit">Submit Changes</button>
+</form>

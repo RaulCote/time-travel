@@ -9,3 +9,8 @@
 <img src="<%= event.picture %>" alt="">
 <h4>You will like it if you dig the <%= event.era %> era. </h4>
 <form method="POST" action="/events/<%=event._id %>/attend"><button>Attend</button></form>
+
+<% if (event.owner == currentUser._id) { %>
+ <form method="POST" action="/events/<%=event._id %>/edit"><button>Edit</button></form> 
+ <form method="POST" action="/events/<%=event._id %>/delete"><button>Delete</button></form> 
+<% } %> 
