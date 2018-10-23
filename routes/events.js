@@ -44,6 +44,19 @@ router.post('/create', (req, res, next) => {
     });
 });
 
+// Edit Event
+router.get('/:_id/edit', (req, res, next) => {
+  console.log('test');
+  const id = req.params._id;
+  Event.findById(id)
+    .then((event) => {
+      res.render('events/editevent', { event });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 // Adding on a Event attendee
 router.post('/:_id/attend', (req, res, next) => {
   const userId = req.session.currentUser._id;
@@ -66,20 +79,7 @@ router.post('/:_id/attend', (req, res, next) => {
     });
 });
 
-// Edit Event
-router.get('/:id/edit', (req, res, next) => {
-  const id = req.params.id;
-  res.render('events/editevent'/*, { event } */);
-  // Event.findById(id)
-  //   .then((event) => {
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-});
-
 // Delete Event
-
 router.get('/:id/delete', (req, res, next) => {
   const id = req.params.id;
   Event.findById(id)

@@ -11,6 +11,6 @@
 <form method="POST" action="/events/<%=event._id %>/attend"><button>Attend</button></form>
 
 <% if (event.owner == currentUser._id) { %>
- <form method="POST" action="/events/<%=event._id %>/edit"><button>Edit</button></form> 
  <a href="/events/<%=event._id %>/delete">Delete</a>
+ <a href="/events/<%=event._id %>/edit">Edit</a>
 <% } %> 
