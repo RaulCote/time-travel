@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
 });
 
 // Second step from Sign In
-router.get('/profile/favorites', middlewares.requireAnon, middlewares.requireUser, (req, res, next) => {
+router.get('/profile/favorites', middlewares.requireUser, (req, res, next) => {
   console.log('Profile favorites');
   res.render('user/profile/favorites');
 });
@@ -36,7 +36,7 @@ router.post('/profile/favorites', middlewares.requirePreferences, (req, res, nex
 });
 
 // Third step from Sign In
-router.get('/profile', middlewares.requireAnon, middlewares.requireUser, (req, res, next) => {
+router.get('/profile', middlewares.requireUser, (req, res, next) => {
   res.render('user/profile/profile');
 });
 
