@@ -7,16 +7,16 @@ const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+require('dotenv').config();
 
 const authRouter = require('./routes/auth');
-
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const eventsRouter = require('./routes/events');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/timetravelApp', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
 });
 
