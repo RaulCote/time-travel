@@ -77,6 +77,7 @@ router.get('/profile/events', middlewares.notifications, (req, res, next) => {
   Event.find({ attendees: { $eq: ObjectId(id) } })
     .then((event) => {
       console.log(event);
+      console.log(req.flash);
       res.render('user/profile/your-events', { event });
     })
     .catch(next);
