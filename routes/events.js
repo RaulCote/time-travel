@@ -58,4 +58,25 @@ router.get('/:_id', middlewares.requireUser, (req, res, next) => {
     });
 });
 
+// Adding on a Event attendee
+router.post('/:_id/attend', (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  const eventId = req.params._id;
+
+  Event.findById(eventId)
+    .then((event) => {
+      console.log('Antes del push:' + event);
+      event.attendees.push(ObjectId(userId));
+      event.save()
+        .then(() => {
+          console.log(event);
+          res.redirect('/user/profile/events');
+        })
+        .catch(next);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 module.exports = router;

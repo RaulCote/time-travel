@@ -8,4 +8,4 @@
 </ul>
 <img src="<%= event.picture %>" alt="">
 <h4>You will like it if you dig the <%= event.era %> era. </h4>
-<form method="POST" action="/user/profile/events"><button>Attend</button></form>
+<form method="POST" action="/events/<%=event._id %>/attend"><button>Attend</button></form>
