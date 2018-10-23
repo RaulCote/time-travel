@@ -7,7 +7,7 @@ const middlewares = require('../middlewares/middlewares');
 const ObjectId = mongoose.Types.ObjectId;
 
 // Events main page: Explore, Your Events, Create.
-router.get('/', middlewares.requireUser, (req, res, next) => {
+router.get('/', middlewares.requireUser, middlewares.notifications, (req, res, next) => {
   res.render('events/index');
 });
 
@@ -44,20 +44,6 @@ router.post('/create', (req, res, next) => {
     });
 });
 
-// Event Page
-router.get('/:_id', middlewares.requireUser, (req, res, next) => {
-  const id = req.params._id;
-  Event.findById(id)
-    .populate('attendees')
-    .then((event) => {
-      res.render('events/displayEvent', { event });
-    })
-    .catch(error => {
-      next(error);
-      console.log('Error finding Event ID', error);
-    });
-});
-
 // Adding on a Event attendee
 router.post('/:_id/attend', (req, res, next) => {
   const userId = req.session.currentUser._id;
@@ -81,15 +67,54 @@ router.post('/:_id/attend', (req, res, next) => {
 });
 
 // Edit Event
-// router.get('/:_id/edit', (req, res, next) => {
-//   const id = req.params.id;
-//   Event.findById(id)
-//     .then((event) => {
-//       res.render('events/editevent', { event });
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// });
+router.get('/:id/edit', (req, res, next) => {
+  const id = req.params.id;
+  res.render('events/editevent'/*, { event } */);
+  // Event.findById(id)
+  //   .then((event) => {
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+});
+
+// Delete Event
+
+router.get('/:id/delete', (req, res, next) => {
+  const id = req.params.id;
+  Event.findById(id)
+    .then((event) => {
+      res.render('events/deleteevent', { event });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.post('/:id/delete', middlewares.requireUser, (req, res, next) => {
+  const id = req.params.id;
+  Event.findByIdAndDelete(id)
+    .then(() => {
+      req.flash('success', 'Evento eliminado correctamente.');
+      res.redirect('/events');
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+// Event Page
+router.get('/:_id', middlewares.requireUser, (req, res, next) => {
+  const id = req.params._id;
+  Event.findById(id)
+    .populate('attendees')
+    .then((event) => {
+      res.render('events/displayEvent', { event });
+    })
+    .catch(error => {
+      next(error);
+      console.log('Error finding Event ID', error);
+    });
+});
 
 module.exports = router;

@@ -12,5 +12,5 @@
 
 <% if (event.owner == currentUser._id) { %>
  <form method="POST" action="/events/<%=event._id %>/edit"><button>Edit</button></form> 
- <form method="POST" action="/events/<%=event._id %>/delete"><button>Delete</button></form> 
+ <a href="/events/<%=event._id %>/delete">Delete</a>
 <% } %> 
