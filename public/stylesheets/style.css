@@ -129,3 +129,11 @@ p {
 .field.submit{
   padding: 25px;
 }
+
+
+
+/* Class de Raúl */
+.event-image {
+  width: 250px;
+  border: 5px solid #172847;
+}
