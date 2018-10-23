@@ -108,14 +108,15 @@ p {
   width: 50px;
 }
 .nav-bar {
-  /*height: 100%;*/
   display: flex;
   flex-flow: row wrap;
   padding: 10px 10px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background: #172847;
-
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .logout-button {
@@ -136,4 +137,9 @@ p {
 .event-image {
   width: 250px;
   border: 5px solid #172847;
+}
+
+/* Logo */
+.img-logo{
+  width: 75px;
 }
