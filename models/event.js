@@ -8,7 +8,7 @@ const eventSchema = new Schema({
   description: String,
   picture: String,
   era: { type: String,
-    enum: ['60s', '70s', '80s', 'XIX century', 'medieval', 'roman times', 'prehistoric']
+    enum: ['60s', '70s', '80s', 'XIX century', 'medieval', 'Roman Empire', 'prehistoric']
   },
   date: Date,
   // location: {
