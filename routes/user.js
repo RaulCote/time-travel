@@ -29,9 +29,7 @@ router.post('/profile/favorites', middlewares.requirePreferences, (req, res, nex
           console.log(addtouser.preferences);
           res.redirect('/user/profile');
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch(next);
     });
 });
 
@@ -63,9 +61,7 @@ router.post('/profile', (req, res, next) => {
           console.log(addtouser.email);
           res.redirect('/events');
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch(next);
     });
 });
 

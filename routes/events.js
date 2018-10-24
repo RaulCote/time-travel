@@ -39,9 +39,7 @@ router.post('/create', (req, res, next) => {
       // req.flash('success', 'Evento creado correctamente.');
       res.redirect('/events');
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch(next);
 });
 
 // Edit Event
@@ -51,9 +49,7 @@ router.get('/:_id/edit', (req, res, next) => {
     .then((event) => {
       res.render('events/editevent', { event: event });
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch(next);
 });
 
 router.post('/:_id/edit', middlewares.requireUser, (req, res, next) => {
@@ -63,9 +59,7 @@ router.post('/:_id/edit', middlewares.requireUser, (req, res, next) => {
     .then(() => {
       res.redirect(`/events/${id}`);
     })
-    .catch(error => {
-      console.log(error);
-    });
+    .catch(next);
 });
 
 // Attend an Event
@@ -85,9 +79,7 @@ router.post('/:_id/attend', (req, res, next) => {
         })
         .catch(next);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch(next);
 });
 
 // Don't attend an Event
@@ -101,9 +93,7 @@ router.post('/:_id/reject', (req, res, next) => {
       console.log(event);
       res.redirect(`/events/${eventId}`);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch(next);
 });
 
 //  Event.find({ attendees: { $eq: ObjectId(id) } })
@@ -116,9 +106,7 @@ router.get('/:id/delete', (req, res, next) => {
     .then((event) => {
       res.render('events/deleteevent', { event });
     })
-    .catch((error) => {
-      next(error);
-    });
+    .catch(next);
 });
 
 router.post('/:id/delete', middlewares.requireUser, (req, res, next) => {
@@ -128,27 +116,30 @@ router.post('/:id/delete', middlewares.requireUser, (req, res, next) => {
       req.flash('success', 'Evento eliminado correctamente.');
       res.redirect('/events');
     })
-    .catch(error => {
-      console.log(error);
-    });
+    .catch(next);
 });
 
 // Event Page
 router.get('/:_id', middlewares.requireUser, (req, res, next) => {
   const id = req.params._id;
   const currentUserId = req.session.currentUser._id;
+
+  if (!ObjectId.isValid(id)) {
+    return next();
+  }
+
   Event.findById(id)
     .populate('attendees')
     .then((event) => {
+      if (!event) {
+        return next();
+      }
       const amIattendee = event.attendees.some((item) => {
         return item._id == currentUserId;
       });
-      res.render('events/displayEvent', { event, amIattendee });
+      return res.render('events/displayEvent', { event, amIattendee });
     })
-    .catch(error => {
-      next(error);
-      console.log('Error finding Event ID', error);
-    });
+    .catch(next);
 });
 
 module.exports = router;
