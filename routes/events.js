@@ -68,7 +68,7 @@ router.post('/:_id/edit', middlewares.requireUser, (req, res, next) => {
     });
 });
 
-// Adding on a Event attendee
+// Attend an Event
 router.post('/:_id/attend', (req, res, next) => {
   const userId = req.session.currentUser._id;
   const eventId = req.params._id;
@@ -89,6 +89,25 @@ router.post('/:_id/attend', (req, res, next) => {
       console.log(error);
     });
 });
+
+// Don't attend an Event
+
+router.post('/:_id/reject', (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  const eventId = req.params._id;
+
+  Event.findByIdAndUpdate({ _id: eventId }, { $pull: { attendees: ObjectId(userId) } })
+    .then((event) => {
+      console.log(event);
+      res.redirect(`/events/${eventId}`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+//  Event.find({ attendees: { $eq: ObjectId(id) } })
+// Event.findByIdAndUpdate(query, update)
 
 // Delete Event
 router.get('/:id/delete', (req, res, next) => {
