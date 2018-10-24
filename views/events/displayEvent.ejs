@@ -11,23 +11,17 @@
   <img class="event-image" src="<%= event.picture %>" alt="">
   <h4>You will like it if you dig the <%= event.era %> era. </h4>
 
-  <% event.attendees.forEach((item) => { %>
-    <% if (item._id == currentUser._id) { %> 
+
+    <% if (amIattendee) { %> 
       <form method="POST" action="/events/<%=event._id %>/reject">
         <button>Reject</button>
       </form>
-    <% } %> 
-  <% }) %> 
-
-  <% event.attendees.forEach((item) => { %> 
-    <%= item._id %> 
-    <%= currentUser._id %> 
-    <% if (item._id != currentUser._id) { %> 
+    <% } else { %> 
       <form method="POST" action="/events/<%=event._id %>/attend">
-        <button>Attend</button>
+       <button>Attend</button>
       </form> 
-    <% } %> 
-  <% }) %> 
+    <% } %>
+
 
     <% if (event.owner == currentUser._id) { %>s
       <a href="/events/<%=event._id %>/delete">Delete</a>

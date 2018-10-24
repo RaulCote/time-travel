@@ -136,10 +136,14 @@ router.post('/:id/delete', middlewares.requireUser, (req, res, next) => {
 // Event Page
 router.get('/:_id', middlewares.requireUser, (req, res, next) => {
   const id = req.params._id;
+  const currentUserId = req.session.currentUser._id;
   Event.findById(id)
     .populate('attendees')
     .then((event) => {
-      res.render('events/displayEvent', { event });
+      const amIattendee = event.attendees.some((item) => {
+        return item._id == currentUserId;
+      });
+      res.render('events/displayEvent', { event, amIattendee });
     })
     .catch(error => {
       next(error);

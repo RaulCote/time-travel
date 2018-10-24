@@ -3,7 +3,7 @@ const router = express.Router();
 const middlewares = require('../middlewares/middlewares');
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', middlewares.requireAnon, (req, res, next) => {
   res.render('index');
 });
 
