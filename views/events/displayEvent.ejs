@@ -1,35 +1,43 @@
-<h1> <%= event.name %> </h1>
-<h2> <%= event.description %> </h2>
-<h3>Event Assistants</h3>
-<ul class="event-attendees">
-<% event.attendees.forEach((item) => { %>
-<li><%= item.username %></li>
-<% }) %>
-</ul>
-<img src="<%= event.picture %>" alt="">
-<h4>You will like it if you dig the <%= event.era %> era. </h4>
 
-<% event.attendees.forEach((item) => { %>
-  <% if (item._id == currentUser._id) { %> 
-    <form method="POST" action="/events/<%=event._id %>/reject">
-      <button>Reject</button>
-    </form>
-  <% } %> 
-<% }) %> 
+<section class="container">
+  <h1> <%= event.name %> </h1>
+  <h2> <%= event.description %> </h2>
+  <h3>Event Assistants</h3>
+  <ul class="event-attendees">
+    <% event.attendees.forEach((item) => { %>
+      <li><%= item.username %></li>
+    <% }) %>
+  </ul>
+  <img class="event-image" src="<%= event.picture %>" alt="">
+  <h4>You will like it if you dig the <%= event.era %> era. </h4>
 
-<% event.attendees.forEach((item) => { %> 
-  <%= item._id %> 
-  <%= currentUser._id %> 
-  <% if (item._id != currentUser._id) { %> 
-    <form method="POST" action="/events/<%=event._id %>/attend">
-     <button>Attend</button>
-    </form> 
-  <% } %> 
-<% }) %> 
+  <% event.attendees.forEach((item) => { %>
+    <% if (item._id == currentUser._id) { %> 
+      <form method="POST" action="/events/<%=event._id %>/reject">
+        <button>Reject</button>
+      </form>
+    <% } %> 
+  <% }) %> 
 
-<% if (event.owner == currentUser._id) { %>s
- <a href="/events/<%=event._id %>/delete">Delete</a>
- <a href="/events/<%=event._id %>/edit">Edit</a>
-<% } %> 
+  <% event.attendees.forEach((item) => { %> 
+    <%= item._id %> 
+    <%= currentUser._id %> 
+    <% if (item._id != currentUser._id) { %> 
+      <form method="POST" action="/events/<%=event._id %>/attend">
+        <button>Attend</button>
+      </form> 
+    <% } %> 
+  <% }) %> 
 
+    <% if (event.owner == currentUser._id) { %>s
+      <a href="/events/<%=event._id %>/delete">Delete</a>
+      <a href="/events/<%=event._id %>/edit">Edit</a>
+    <% } %> 
+</section>
+
+
+
+
+
+ 
 
