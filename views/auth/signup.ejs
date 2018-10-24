@@ -1,20 +1,22 @@
-<h1>Create new username</h1>
+<section class="container">
+  <h1>Create new username</h1>
 
-<form method="POST" action="/auth/signup">
+  <form method="POST" action="/auth/signup">
 
-  <div class="field" >
-    <label>Username</label>
-    <input class="input" type="text" name="username" placeholder="Username"/>
-  </div>
+    <div class="field" >
+      <label>Username</label>
+      <input class="input" type="text" name="username" placeholder="Username"/>
+    </div>
 
-  <div class="field" >
-    <label>Password</label>
-    <input class="input" type="password" name="password" placeholder="Password"/>
-  </div>
+    <div class="field" >
+      <label>Password</label>
+      <input class="input" type="password" name="password" placeholder="Password"/>
+    </div>
 
-  <div class="field submit">
-    <button class="button" type="submit">Save</button>
-  </div>
-</form>
+    <div class="field submit">
+      <button class="button" type="submit">Save</button>
+    </div>
+  </form>
 
-<%-  include('../partials/notifications') %>
+  <%-  include('../partials/notifications') %>
+</section>

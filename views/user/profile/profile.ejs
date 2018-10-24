@@ -1,19 +1,21 @@
-<h1>This is the profile third screen</h1>
-<p>To add description and email</p>
-<p>Username = <%= currentUser.username %></p>
+<section class="container">
+  <h1>Welcome <%= currentUser.username %>!</h1>
+  <p>Your profile</p>
 
-<form method="POST" action="/user/profile">
+  <form method="POST" action="/user/profile">
 
-  <div class="field" >
-    <label>Description</label>
-    <textarea name="description" rows="10" cols="50">Write something here</textarea>  
-  </div>
-  <div class="field" >
-    <label>email</label>
-    <input type="email" name="email"/>
-  </div>
+    <div class="field" >
+      <label>Description</label>
+      <textarea name="description" rows="10" cols="50" placeholder="Tell us something about yourself..."></textarea>  
+    </div>
+    <div class="field" >
+      <label>email</label>
+      <input type="email" name="email"/>
+    </div>
 
-  <div class="field submit">
-    <button type="submit">Save</button>
-  </div>
-</form>
+    <div class="field submit">
+      <button class="button" type="submit">Save</button>
+    </div>
+  </form>
+</section>
+
