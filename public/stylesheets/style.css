@@ -12,7 +12,7 @@ html {
 body {
   /*height: 100%;*/
   color: #172847;
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Chakra Petch', sans-serif;
   margin: 0;
   padding: 0;
@@ -32,6 +32,18 @@ p {
   margin: 0;
   text-align: justify;
 }
+
+@font-face {
+  font-family: 'Anurati-Regular';
+  src: url('/fonts/Anurati-Regular.otf');
+}
+
+h1.logo-font {
+  font-family: 'Anurati-Regular';
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
 
 
 
@@ -55,8 +67,8 @@ p {
 
 .container {
   height: 90%;
-  padding: 10px 0;
-  margin: 0 10px;
+  padding: 2px 0;
+  margin: 0 2px;
   margin-bottom: 85px;
   display: flex;
   flex-flow: column;
@@ -90,7 +102,7 @@ p {
   border: 1px solid #fff;
   border-radius: 10px;
   font-family: 'Chakra Petch', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   align-self: center;
   display: flex;
   justify-content: center;
@@ -143,16 +155,16 @@ p {
 
 /* Class de Raúl */
 .event-image {
-  width: 250px;
+  width: 300px;
   border: 5px solid #172847;
   display: flex;
   align-items: center;
 }
 
 .events {
-  background-color: #17284767;
+  background-color: #17284718;
   border-radius: 10px;
-  margin: 10px 20px;
+  margin: 10px 2px;
   padding: 10px 10px;
 }
 
