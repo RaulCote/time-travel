@@ -111,4 +111,25 @@ router.get('/profile/me', middlewares.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+// Edit your profile
+
+router.get('/profile/me/edit', (req, res, next) => {
+  const id = req.session.currentUser._id;
+  User.findById(id)
+    .then((user) => {
+      res.render('user/profile/editprofile', { user: user });
+    })
+    .catch(next);
+});
+
+router.post('/me/edit', middlewares.requireUser, (req, res, next) => {
+  const user = req.body;
+  const id = req.params._id;
+  User.findByIdAndUpdate(id, user)
+    .then(() => {
+      res.redirect(`user/profile/me`);
+    })
+    .catch(next);
+});
+
 module.exports = router;
