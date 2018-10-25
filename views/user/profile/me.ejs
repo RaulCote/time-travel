@@ -1,3 +1,11 @@
-<h1>Personal Profile</h1>
+<section class="container">
+  <h1>Hello, <%= currentUser.username %></h1>
+  <p><%= user.description %></p>
+  <p><%= user.email %></p>
+  <p><%= user.preferences %></p>
+  <p><% events.forEach((event)=>{ %>
+    <%= event.name %>
+  <% }) %></p>
+</section>
 
 <!-- Tiene que mostrar la información personal del usuario. Nombre, descripción, eras favoritas -->

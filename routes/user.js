@@ -89,4 +89,26 @@ router.post('/profile/events', (req, res, next) => {
 //   .catch(next);
 });
 
+// Your profile page
+
+router.get('/profile/me', middlewares.requireUser, (req, res, next) => {
+  const id = req.session.currentUser._id;
+  const promiseUser = User.findById(id);
+  const promiseAttendingEvents = Event.find({ attendees: id });
+
+  Promise.all([promiseUser, promiseAttendingEvents])
+    .then((results) => {
+      const data = {
+        user: results[0],
+        events: results[1]
+      };
+      res.render('user/profile/me', data);
+    })
+  // User.findById(id)
+  //   .then((user) => {
+  //     res.render('user/profile/me', { user });
+  //   })
+    .catch(next);
+});
+
 module.exports = router;
