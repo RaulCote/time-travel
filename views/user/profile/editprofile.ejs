@@ -1,0 +1,39 @@
+<section class="container">
+  <h1>Edit Profile</h1>
+  <form action="/user/me/edit" method="post">
+  <% if (user.description){ %>
+  <div><label>Description</label><textarea name="description" value="<%= user.description %>"rows="10" cols="50"><%= user.description %></textarea></div>
+  <% } %>
+  <% if (user.preferences === 'Contemporary History') { %> 
+  <div><input type="radio" name="era" value="Contemporary History'" checked>Contemporary History'</div>
+<% } else { %> 
+  <div><input type="radio" name="era" value="Contemporary History">Contemporary History</div>
+<% } %> 
+<% if (user.preferences === 'Late Modern Period') { %> 
+  <div><input type="radio" name="era" value="Late Modern Period" checked>Late Modern Period</div>
+<% } else { %> 
+  <div><input type="radio" name="era" value="Late Modern Period">Late Modern Period</div>
+<% } %> 
+<% if (user.preferences === 'Early Modern Period') { %> 
+  <div><input type="radio" name="era" value="Early Modern Period" checked>Early Modern Period</div>
+<% } else { %> 
+  <div><input type="radio" name="era" value="Early Modern Period">Early Modern Period</div>
+<% } %> 
+<% if (user.preferences === 'Middle Ages') { %> 
+  <div><input type="radio" name="era" value="Middle Ages" checked>Middle Ages</div>
+<% } else { %> 
+  <div><input type="radio" name="era" value="Middle Ages">Middle Ages</div>
+<% } %> 
+<% if (user.preferences === 'Classical Era') { %> 
+  <div><input type="radio" name="era" value="Classical Era" checked>Classical Era</div>
+<% } else { %> 
+  <div><input type="radio" name="era" value="Classical Era">Classical Era</div>
+<% } %> 
+<% if (user.preferences === 'Prehistory') { %> 
+  <div><input type="radio" name="era" value="Prehistory" checked>Prehistory</div>
+  <% } else { %> 
+  <div><input type="radio" name="era" value="Prehistory">Prehistory</div>
+<% } %> 
+  <button type="submit" value="send">Submit Changes</button>
+  </form>
+</section>

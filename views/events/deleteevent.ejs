@@ -1,5 +1,9 @@
-<h1>Delete Event</h1>
-<h3><%= event.name %></h3>
-<p>Si pulsas el siguiente enlace, el evento quedará eliminado.</p>
-<form method="POST" action="/events/<%=event._id %>/delete"><button>Delete</button></form> 
-</form> 
+<section class="container">
+  <h1>Delete Event</h1>
+  <h3><%= event.name %></h3>
+  <img class="event-image" src="<%= event.picture %>" alt="">
+  <p>Si pulsas el siguiente enlace, el evento quedará eliminado.</p>
+  <form method="POST" action="/events/<%=event._id %>/delete">
+    <button class="button button-margin">Delete</button>
+  </form> 
+</section>
