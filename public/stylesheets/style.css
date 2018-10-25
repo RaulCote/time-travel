@@ -41,10 +41,8 @@ p {
 h1.logo-font {
   font-family: 'Anurati-Regular';
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 1em;
 }
-
-
 
 
 /* ---- layout ---- */
@@ -171,4 +169,17 @@ h1.logo-font {
 /* Logo */
 .img-logo{
   width: 75px;
+}
+
+.logo {
+  margin: 0 auto;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 2px 7px -1px #17284767;
+  height: 9%;
+  margin-bottom: 3px;
+  padding-bottom: 5px;
+  text-align: center;
+  display: flex;
+  background-color: #fcfcfc;
 }
