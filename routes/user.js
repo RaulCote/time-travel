@@ -44,7 +44,6 @@ router.post('/profile', (req, res, next) => {
   let user = req.session.currentUser;
 
   if (!description || !email) {
-    console.log('rellena todos los campos');
     return res.redirect('/user/profile');
   }
 

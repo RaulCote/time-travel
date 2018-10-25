@@ -29,7 +29,7 @@ h1, h2, h3 {
 }
 
 p {
-  margin: 0;
+  margin: 0 5px;
   text-align: justify;
 }
 
@@ -148,19 +148,44 @@ a {
 
 .field {
   padding: 10px 10px;
+
+}
+
+.input {
+  height: 35px;
+  width: 300px;
+  border: 2px solid #17284798;
+  border-radius: 5px;
+  font-size: 1em;
+  text-align: center;
 }
 .field.submit{
   padding: 25px;
+  margin: auto 0;
+}
+
+.form-button {
+  margin: auto;
+}
+
+label {
+  display: block;
+  text-align: center;
+  padding-bottom: 5px;
 }
 
 
 
 /* Class de Raúl */
 .event-image {
-  width: 95%;
+  width: 97%;
   border: 3px solid rgb(233, 233, 114);
   display: flex;
   align-items: center;
+}
+
+ul.event-attendees {
+  list-style-type: string;
 }
 
 .events {
@@ -187,6 +212,11 @@ a {
   background-color: #fcfcfc;
 }
 
+/* Sign Up Log In */
+
+.signup-login {
+  padding-top: 35%;
+}
 /* Exploring Events */ 
   /* Partial View : Event pre-detail */
 .link-event-detail {
@@ -212,4 +242,41 @@ a {
 section.fourcerofour-page p {
   padding-bottom: 5px;
   font-weight: 550;
+}
+
+/* Display Event */
+
+.display-event-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  align-content: center;
+  margin-bottom: 30px;
+}
+
+.event-attendees {
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.display-event-buttons-container a {
+  padding-top: 4px;
+}
+
+.button-small {
+  width: 85px;
+  height: 30px;
+  text-align: center;
+  background-color: rgb(233, 233, 233);
+  color: #172847;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 5px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 0.78em;
+  font-weight: 600;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 5px -1px #17284767;
+  text-decoration: none;
 }

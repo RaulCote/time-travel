@@ -7,7 +7,7 @@ const userSchema = new Schema({
   password: String,
   preferences: [{
     type: String,
-    enum: ['60s ', '70s ', '80s ', 'medieval ', 'prehistoric ']
+    enum: ['60s', '70s', '80s', 'medieval', 'prehistoric']
   }],
   picture: String,
   description: String,
