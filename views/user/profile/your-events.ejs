@@ -1,14 +1,10 @@
 <section class="container">
   <%-  include ../../partials/notifications %>
-
-
   <h1>Your events</h1>
-
-  <section>
     <% event.forEach((item) => { %>
     <%- include ../../partials/event.ejs %>
     <% }) %>
-  </section>
 </section>
+
 
 
