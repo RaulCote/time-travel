@@ -41,7 +41,7 @@ p {
 h1.logo-font {
   font-family: 'Anurati-Regular';
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 
@@ -65,14 +65,13 @@ h1.logo-font {
 
 .container {
   height: 90%;
-  padding: 2px 0;
-  margin: 0 2px;
-  margin-bottom: 85px;
+  padding-top: 18%;
+  margin: 0 auto 18%;
+  width:99%;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  /*position: relative;*/
 }
 
 .section {
@@ -97,14 +96,15 @@ h1.logo-font {
   width: 200px;
   background-color: #172847;
   color: #fff;
-  border: 1px solid #fff;
+  border: 2px solid yellow;
   border-radius: 10px;
   font-family: 'Chakra Petch', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   align-self: center;
   display: flex;
   justify-content: center;
-  box-shadow: 0 10px 7px -1px #17284767;
+  box-shadow: 0 5px 7px -1px #17284767;
+  text-decoration: none;
 }
 .button-margin {
   margin: 30px;
@@ -135,6 +135,7 @@ h1.logo-font {
   bottom: 0;
   width: 100%;
   margin: 0 auto;
+  border-top: 2px solid yellow;
 }
 
 .logout-button {
@@ -153,8 +154,8 @@ h1.logo-font {
 
 /* Class de Raúl */
 .event-image {
-  width: 300px;
-  border: 5px solid #172847;
+  width: 95%;
+  border: 3px solid rgb(233, 233, 114);
   display: flex;
   align-items: center;
 }
@@ -162,7 +163,7 @@ h1.logo-font {
 .events {
   background-color: #17284718;
   border-radius: 10px;
-  margin: 10px 2px;
+  margin: 10px auto;
   padding: 10px 10px;
 }
 
@@ -172,7 +173,7 @@ h1.logo-font {
 }
 
 .logo {
-  margin: 0 auto;
+  margin: 0 0;
   position: fixed;
   width: 100%;
   box-shadow: 0 2px 7px -1px #17284767;
@@ -180,6 +181,32 @@ h1.logo-font {
   margin-bottom: 3px;
   padding-bottom: 5px;
   text-align: center;
-  display: flex;
   background-color: #fcfcfc;
+}
+
+/* Exploring Events */ 
+  /* Partial View : Event pre-detail */
+.link-event-detail {
+  text-decoration: none;
+}
+
+/* 404 */ 
+.fourcerofour-page {
+  padding-top: 25%;
+  width:90%;
+  margin:0 auto;
+}
+
+.fourcerofour-page h3 {
+  font-size: 1em;
+}
+
+.fourcerofour-image {
+  width:340px;
+  border: 4px solid yellow;
+}
+
+section.fourcerofour-page p {
+  padding-bottom: 5px;
+  font-weight: 550;
 }
