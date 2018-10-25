@@ -1,15 +1,14 @@
 <section class="container">
 <h1>Select your favourite eras!</h1>
-<p><%= currentUser.username %></p>
 
 <div class ="signup3-favorite-eras">
   <form method="POST" action="/user/profile/favorites">
-    <div><input type="checkbox" name="preferences" value="60s">60s</div>
-    <div><input type="checkbox" name="preferences" value="70s">70s</div>
-    <div><input type="checkbox" name="preferences" value="80s">80s</div>
-    <div><input type="checkbox" name="preferences" value="medieval">medieval</div>
-    <div><input type="checkbox" name="preferences" value="prehistoric">prehistoric</div>
-    <button type="submit">Submit</button>
+    <div><input class="radio-button" type="checkbox" name="preferences" value="60s">60s</div>
+    <div><input class="radio-button" type="checkbox" name="preferences" value="70s">70s</div>
+    <div><input class="radio-button" type="checkbox" name="preferences" value="80s">80s</div>
+    <div><input class="radio-button" type="checkbox" name="preferences" value="medieval">medieval</div>
+    <div><input class="radio-button" type="checkbox" name="preferences" value="prehistoric">prehistoric</div>
+    <button class="button" type="submit">Submit</button>
   </form> 
 </div>
 </section>
