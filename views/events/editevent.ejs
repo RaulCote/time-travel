@@ -1,46 +1,45 @@
-<h1>Edit Event</h1>
-<h3><%= event.name %></h3>
-
-<form method="POST" action="/events/<%=event._id %>/edit">
-  <div><label>Name</label><input type="text" name="name" value="<%= event.name %>" /></div>
-  <label>Eras</label>
-  <% if (event.era === '60s') { %> 
-    <div><input type="radio" name="era" value="60s" checked>60s</div>
-  <% } else { %> 
-    <div><input type="radio" name="era" value="60s">60s</div>
-  <% } %> 
-  <% if (event.era === '70s') { %> 
-    <div><input type="radio" name="era" value="70s" checked>70s</div>
-  <% } else { %> 
-    <div><input type="radio" name="era" value="70s">70s</div>
-  <% } %> 
-  <% if (event.era === '80s') { %> 
-    <div><input type="radio" name="era" value="80s" checked>80s</div>
-  <% } else { %> 
-    <div><input type="radio" name="era" value="80s">80s</div>
-  <% } %> 
-  <% if (event.era === 'XIX century') { %> 
-    <div><input type="radio" name="era" value="XIX century" checked>XIX Century</div>
-  <% } else { %> 
-    <div><input type="radio" name="era" value="XIX century">XIX Century</div>
-  <% } %> 
-  <% if (event.era === 'medieval') { %> 
-    <div><input type="radio" name="era" value="medieval" checked>medieval</div>
-  <% } else { %> 
-    <div><input type="radio" name="era" value="medieval">medieval</div>
-  <% } %> 
-  <% if (event.era === 'Roman Empire') { %> 
-    <div><input type="radio" name="era" value="Roman Empire" checked>Roman Empire</div>
-    <% } else { %> 
-    <div><input type="radio" name="era" value="Roman Empire">Roman Empire</div>
-  <% } %> 
-  <% if (event.era === 'prehistoric') { %> 
-    <div><input type="radio" name="era" value="prehistoric" checked>prehistoric</div>
-    <% } else { %> 
-    <div><input type="radio" name="era" value="prehistoric">prehistoric</div>
-  <% } %> 
-  <div><label>Date</label><input type="date" name="date" value="<%= event.date %>" /></div>
-  <div><label>Description</label><textarea name="description" value="<%= event.description %>"rows="10" cols="50"><%= event.description %></textarea></div>
-  <div><label>URL Photo</label><input type="url" value="<%= event.picture %>" name="picture"/></div>
-  <button type="submit" value="send">Submit Changes</button>
-</form>
+<section class="container">
+  <h3><%= event.name %></h3>
+  <div class="signup3-favorite-eras">
+    <form method="POST" action="/events/<%=event._id %>/edit">
+      <div class="field"><label>Name</label><input class="input" type="text" name="name" value="<%= event.name %>" /></div>
+      <label>Eras</label>
+      <% if (event.era === '60s') { %> 
+        <div class="radio-button"><input type="radio" name="era" value="60s" checked>60s</div>
+      <% } else { %> 
+        <div class="radio-button"><input type="radio" name="era" value="60s">60s</div>
+      <% } %> 
+      <% if (event.era === '70s') { %> 
+        <div class="radio-button"><input type="radio" name="era" value="70s" checked>70s</div>
+      <% } else { %> 
+        <div class="radio-button"><input type="radio" name="era" value="70s">70s</div>
+      <% } %> 
+      <% if (event.era === '80s') { %> 
+        <div class="radio-button"><input type="radio" name="era" value="80s" checked>80s</div>
+      <% } else { %> 
+        <div class="radio-button"><input type="radio" name="era" value="80s">80s</div>
+      <% } %> 
+      <% if (event.era === 'medieval') { %> 
+        <div class="radio-button"><input type="radio" name="era" value="medieval" checked>medieval</div>
+      <% } else { %> 
+        <div class="radio-button"><input type="radio" name="era" value="medieval">medieval</div>
+      <% } %> 
+      <% if (event.era === 'prehistoric') { %> 
+        <div class="radio-button"><input type="radio" name="era" value="prehistoric" checked>prehistoric</div>
+        <% } else { %> 
+        <div class="radio-button"><input type="radio" name="era" value="prehistoric">prehistoric</div>
+      <% } %> 
+    </div>
+    <div class="field">
+      <label>Date</label><input class="input" type="date" name="date" value="<%= event.date %>" />
+    </div>
+    <div class="field">
+      <label>Description</label>
+      <textarea class="textarea" name="description" value="<%= event.description %>"rows="5" cols="32"><%= event.description %></textarea>
+    </div>
+    <div>
+      <label>URL Photo</label><input class="input" type="url" value="<%= event.picture %>" name="picture"/>
+    </div>
+    <button class="button button-margin" type="submit" value="send">Submit Changes</button>
+  </form>
+</section>

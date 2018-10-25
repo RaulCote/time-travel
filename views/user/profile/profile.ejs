@@ -1,20 +1,20 @@
 <section class="container">
   <h1>Welcome <%= currentUser.username %>!</h1>
-  <p>Your profile</p>
 
   <form method="POST" action="/user/profile">
 
-    <div class="field" >
+    <div class="field">
       <label>Description</label>
-      <textarea name="description" rows="10" cols="50" placeholder="Tell us something about yourself..."></textarea>  
+      <textarea class='textarea' name="description" rows="5" cols="32" placeholder="Tell us something about yourself..."></textarea>  
     </div>
-    <div class="field" >
+    
+    <div class="field">
       <label>email</label>
-      <input type="email" name="email"/>
+      <input class="input" type="email" name="email" placeholder="email" />
     </div>
 
     <div class="field submit">
-      <button class="button" type="submit">Save</button>
+      <button class="form-button button" type="submit">Save</button>
     </div>
   </form>
 </section>

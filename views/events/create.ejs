@@ -1,19 +1,30 @@
 <section class="container">
-  <h1>Create Events</h1>
+<h1>Create Events</h1>
+<div class="signup3-favorite-eras">
   <form method="POST" action="/events/create">
-    <div><label>Name</label><input type="text" name="name"/></div>
-    <label>Eras</label>
-      <div><input type="radio" name="era" value="60s">60s</div>
-      <div><input type="radio" name="era" value="70s">70s</div>
-      <div><input type="radio" name="era" value="80s">80s</div>
-      <div><input type="radio" name="era" value="XIX century">XIX Century</div>
-      <div><input type="radio" name="era" value="medieval">medieval</div>
-      <div><input type="radio" name="era" value="Roman Empire">Roman Empire</div>
-      <div><input type="radio" name="era" value="prehistoric">prehistoric</div>
-    <div><label>Date</label><input type="date" name="date"/></div>
-    <div><textarea name="description" rows="10" cols="40" placeholder="Your description..."></textarea></div>
-    <div><label>URL Photo</label><input type="url" name="picture"/></div>
-    <button class="button button-margin" type="submit">Create</button>
+    <div class="field">
+      <label>Name</label>
+      <input class="input" type="text" name="name" placeholder="name"/>
+    </div>
+        <label>Eras</label>
+          <div class="radio-button"><input type="radio" name="era" value="60s">60s</div>
+          <div class="radio-button"><input type="radio" name="era" value="70s">70s</div>
+          <div class="radio-button"><input type="radio" name="era" value="80s">80s</div>
+          <div class="radio-button"><input type="radio" name="era" value="XIX century">XIX Century</div>
+          <div class="radio-button"><input type="radio" name="era" value="medieval">medieval</div>
+          <div class="radio-button"><input type="radio" name="era" value="Roman Empire">Roman Empire</div>
+          <div class="radio-button"><input type="radio" name="era" value="prehistoric">prehistoric</div>
+      </div>
+      <div class="field">
+        <label>Date</label>
+        <input class="input" type="date" name="date"/>
+      </div>
+      <div><textarea class="textarea" name="description" rows="5" cols="32" placeholder="Your description..."></textarea></div>
+      <div class="field">
+        <label>URL Photo</label>
+        <input class="input" type="url" name="picture"/>
+      </div>
+      <button class="button button-margin" type="submit">Create</button>
   </form>
 </section>
 
