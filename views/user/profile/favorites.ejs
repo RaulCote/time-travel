@@ -1,17 +1,18 @@
 <section class="container signup-login">
-<h1>Select your favourite eras!</h1>
+  <%-  include ../../partials/notifications %>
+  <h1>Select your favourite eras!</h1>
 
-<div class ="signup3-favorite-eras">
-  <form method="POST" action="/user/profile/favorites">
-    <div class="radio-button"><input type="checkbox" name="preferences" value="Contemporary History">Contemporary History</div>
-    <div class="radio-button"><input type="checkbox" name="preferences" value="Late Modern Period">Late Modern Period</div>
-    <div class="radio-button"><input type="checkbox" name="preferences" value="Early Modern Period">Early Modern Period</div>
-    <div class="radio-button"><input type="checkbox" name="preferences" value="Middle Ages">Middle Ages</div>
-    <div class="radio-button"><input type="checkbox" name="preferences" value="Classical Era">Classical Era</div>
-    <div class="radio-button"><input type="checkbox" name="preferences" value="Prehistory">Prehistory</div>
-    <button class="button button-margin" type="submit">Submit</button>
-  </form> 
-</div>
+  <div class ="signup3-favorite-eras">
+    <form method="POST" action="/user/profile/favorites">
+      <div class="radio-button"><input type="checkbox" name="preferences" value="Contemporary History">Contemporary History</div>
+      <div class="radio-button"><input type="checkbox" name="preferences" value="Late Modern Period">Late Modern Period</div>
+      <div class="radio-button"><input type="checkbox" name="preferences" value="Early Modern Period">Early Modern Period</div>
+      <div class="radio-button"><input type="checkbox" name="preferences" value="Middle Ages">Middle Ages</div>
+      <div class="radio-button"><input type="checkbox" name="preferences" value="Classical Era">Classical Era</div>
+      <div class="radio-button"><input type="checkbox" name="preferences" value="Prehistory">Prehistory</div>
+      <button class="button button-margin" type="submit">Submit</button>
+    </form> 
+  </div>
 </section>
 
 

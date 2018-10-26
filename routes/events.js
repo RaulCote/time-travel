@@ -8,7 +8,7 @@ const ObjectId = mongoose.Types.ObjectId;
 
 // Events main page: Explore, Your Events, Create.
 router.get('/', middlewares.requireUser, middlewares.notifications, (req, res, next) => {
-  res.render('events/index');
+  res.render('events/index', { messages: req.flash('success') });
 });
 
 // Events Explore Page
@@ -23,11 +23,11 @@ router.get('/explore', middlewares.requireUser, (req, res, next) => {
 });
 
 // Events Create Page
-router.get('/create', middlewares.requireUser, (req, res, next) => {
-  res.render('events/create');
+router.get('/create', middlewares.requireUser, middlewares.notifications, (req, res, next) => {
+  res.render('events/create', { messages: req.flash('error') });
 });
 
-router.post('/create', (req, res, next) => {
+router.post('/create', middlewares.requireCreatingEvent, (req, res, next) => {
   const event = req.body;
   const userId = req.session.currentUser._id;
   event.owner = userId;
@@ -36,7 +36,7 @@ router.post('/create', (req, res, next) => {
     .then((createdEvent) => {
       createdEvent.attendees.push(ObjectId(userId));
       createdEvent.save();
-      // req.flash('success', 'Evento creado correctamente.');
+      req.flash('success', 'Event created succesfully.');
       res.redirect('/events');
     })
     .catch(next);
@@ -69,12 +69,10 @@ router.post('/:_id/attend', (req, res, next) => {
 
   Event.findById(eventId)
     .then((event) => {
-      console.log('Antes del push:' + event);
       event.attendees.push(ObjectId(userId));
       event.save()
         .then(() => {
-          console.log(event);
-          req.flash('success', '¡Asistencia confirmada! ¡Prepárate!');
+          req.flash('success', '¡¡Get ready for your Event!');
           res.redirect('/user/profile/events');
         })
         .catch(next);
@@ -90,7 +88,6 @@ router.post('/:_id/reject', (req, res, next) => {
 
   Event.findByIdAndUpdate({ _id: eventId }, { $pull: { attendees: ObjectId(userId) } })
     .then((event) => {
-      console.log(event);
       res.redirect(`/events/${eventId}`);
     })
     .catch(next);

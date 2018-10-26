@@ -31,7 +31,6 @@ router.post('/signup', middlewares.requireUserPassSignUp, (req, res, next) => {
               .then(() => {
                 req.session.currentUser = user;
                 res.redirect('/user/profile/favorites');
-                console.log(req.session.currentUser);
               });
           })
           .catch(next);
@@ -52,8 +51,7 @@ router.post('/login', middlewares.requireUserPassLogIn, (req, res, next) => {
   User.findOne({ username })
     .then((user) => {
       if (!user) {
-        console.log('no existe user');
-        req.flash('error', 'Usuario o Contraseña incorrectos.');
+        req.flash('error', 'User or Password incorrect.');
         return res.redirect('/auth/login');
       }
 
@@ -61,8 +59,7 @@ router.post('/login', middlewares.requireUserPassLogIn, (req, res, next) => {
         req.session.currentUser = user;
         res.redirect('/events');
       } else {
-        console.log('contraseña erronea');
-        req.flash('error', 'Usuario o Contraseña incorrectos.');
+        req.flash('error', 'User or Password incorrect.');
         return res.redirect('/auth/login');
       }
     })

@@ -6,6 +6,7 @@
   <p> <%= user.email %></p>
   <h4>preferences</h4>
   <p> <%= user.preferences %></p>
+  <h4>attending events</h4>
   <% events.forEach((item)=>{ %>
      <%- include ../../partials/event.ejs %>
   <% }) %>

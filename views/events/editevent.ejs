@@ -2,10 +2,13 @@
   <h3><%= event.name %></h3>
   <div class="signup3-favorite-eras">
     <form method="POST" action="/events/<%=event._id %>/edit">
-      <div class="field"><label>Name</label><input class="input" type="text" name="name" value="<%= event.name %>" /></div>
+      <div class="field">
+        <label>Name</label>
+        <input class="input" type="text" name="name" value="<%= event.name %>" />
+      </div>
       <label>Eras</label>
       <% if (event.era === 'Contemporary History') { %> 
-        <div><input type="radio" name="era" value="Contemporary History'" checked>Contemporary History</div>
+        <div><input type="radio" name="era" value="Contemporary History" checked>Contemporary History</div>
       <% } else { %> 
         <div><input type="radio" name="era" value="Contemporary History">Contemporary History</div>
       <% } %> 
@@ -15,9 +18,9 @@
         <div><input type="radio" name="era" value="Late Modern Period">Late Modern Period</div>
       <% } %> 
       <% if (event.era === 'Early Modern Period') { %> 
-      <div><input type="radio" name="era" value="Early Modern Period" checked>Early Modern Period</div>
+        <div><input type="radio" name="era" value="Early Modern Period" checked>Early Modern Period</div>
       <% } else { %> 
-      <div><input type="radio" name="era" value="Early Modern Period">Early Modern Period</div>
+        <div><input type="radio" name="era" value="Early Modern Period">Early Modern Period</div>
       <% } %> 
       <% if (event.era === 'Middle Ages') { %> 
         <div><input type="radio" name="era" value="Middle Ages" checked>Middle Ages</div>
@@ -34,7 +37,7 @@
         <% } else { %> 
         <div><input type="radio" name="era" value="Prehistory">Prehistory</div>
       <% } %> 
-    </div>
+  </div>
     <div class="field">
       <label>Date</label><input class="input" type="date" name="date" value="<%= event.date %>" />
     </div>
