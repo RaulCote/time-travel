@@ -72,7 +72,7 @@ router.post('/:_id/attend', (req, res, next) => {
       event.attendees.push(ObjectId(userId));
       event.save()
         .then(() => {
-          req.flash('success', '¡¡Get ready for your Event!');
+          req.flash('success', 'Get ready for your Event!');
           res.redirect('/user/profile/events');
         })
         .catch(next);

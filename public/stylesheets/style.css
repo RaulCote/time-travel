@@ -217,6 +217,7 @@ ul.event-attendees {
 }
 
 .logo {
+  text-decoration: none;
   margin: 0 0;
   position: fixed;
   width: 100%;
